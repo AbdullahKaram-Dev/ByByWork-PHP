@@ -1,7 +1,8 @@
 <?php
 
-
-
+/** $argv available variable contain all parameters coming from cli when run script
+ *  example php shell.php abdullah karma password (all parameters)
+ */
 $username = readline('what is your username: ');
 $password = readline('what is your password: ');
 $originName = readline('what is origin name: ');
@@ -18,21 +19,3 @@ sleep(2);
 exec("git push origin ".$originName);
 sleep(2);
 echo "successfully pushing to ".$originName;
-
-
-
-//$dd = readline('what is your first name?');
-//echo $dd;
-//print_r($argv);
-//$first_name = $argv[0];
-//
-//readline('what is your last name?');
-//
-//$last_name = $argv[0];
-//
-//echo "welcome".$first_name . $last_name;
-//
-//print_r($argv);
-//print_r(getopt('aaa',[1,2,3]));
-//
-//exec('git push origin master',);
