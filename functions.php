@@ -18,10 +18,11 @@ function sum_two(int $param,int...$numbers):int
 echo sum_two(200,100,100,100).PHP_EOL;
 
 if(!function_exists('sum_three')){
-    function sum_three(int...$numbers):int
+    function sum_three(...$numbers):int
     {
         return array_sum($numbers);
     }
 }
 
 echo sum_three(10,20,20).PHP_EOL;
+

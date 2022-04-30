@@ -7,15 +7,16 @@ $username = readline('what is your username: ');
 $password = readline('what is your password: ');
 $originName = readline('what is origin name: ');
 $commitMessage = readline('what is your commit message: ');
+$projectPath = readline('what is project path: ');
+$scriptName = readline('what is script name: ');
 $datePushing = readline('what is date you need to push your script: ');
+$fullCallingPath = "C:/laragon/www/".$projectPath.'/'.$scriptName;
 
 if ($password != '123456' || $username != 'abdo'){
      die('invalid credentials');
 }
-exec("git add .");
-sleep(2);
-exec("git commit -m ".$commitMessage);
-sleep(2);
-exec("git push origin ".$originName);
-sleep(2);
-echo "successfully pushing to ".$originName;
+
+$connection= mysqli_connect('localhost','root','','cron');
+mysqli_query($connection,"insert into cron (origin_name,commit_message,project_path,script_name,calling_path,date) 
+                               values ('$originName','$commitMessage','$projectPath','$scriptName','$fullCallingPath','$datePushing')");
+mysqli_close($connection);
