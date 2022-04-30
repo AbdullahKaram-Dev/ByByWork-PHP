@@ -8,9 +8,9 @@ $result = mysqli_fetch_object($data);
 mysqli_close($connection);
 
 exec("git add .");
-sleep(5);
+sleep(3);
 exec("git commit -m ".$result->commit_message);
-sleep(5);
+sleep(3);
 exec("git push origin ".$result->origin_name);
-sleep(5);
+sleep(3);
 echo "successfully pushing";
