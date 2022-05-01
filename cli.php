@@ -10,3 +10,7 @@ function checkIsCli():string
 }
 
 echo checkIsCli();
+exec('ls',$output);
+print_r($output);
+readline_add_history('ls');
+print_r(readline_list_history());
