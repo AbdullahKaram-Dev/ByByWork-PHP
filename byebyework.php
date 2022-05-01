@@ -7,14 +7,12 @@ $result = mysqli_fetch_object($data);
 if (!is_null($result)){
 
     $message = "$result->commit_message";
-//    var_dump($message);
-//    die;
     exec("git add .");
     sleep(3);
     exec("git commit -m $message");
     sleep(3);
-    exec("git push -u origin master");
+    exec("git push -u origin $result->origin_name");
     sleep(3);
-    //$updateCron = mysqli_query($connection,"update cron set status = 'completed' where id = '$result->id'");
+    $updateCron = mysqli_query($connection,"update cron set status = 'completed' where id = '$result->id'");
 }
 mysqli_close($connection);
