@@ -12,6 +12,6 @@ exec("git commit -m $result->commit_message");
 sleep(3);
 exec("git push origin $result->origin_name");
 sleep(3);
-return "successfully pushing";
+
 
 
