@@ -11,9 +11,9 @@ if (!is_null($result)){
 //    die;
     exec("git add .");
     sleep(3);
-    exec("git commit -m just cron jop");
+    exec("git commit -m $message");
     sleep(3);
-    exec("git push -u origin main");
+    exec("git push -u origin master");
     sleep(3);
     //$updateCron = mysqli_query($connection,"update cron set status = 'completed' where id = '$result->id'");
 }
