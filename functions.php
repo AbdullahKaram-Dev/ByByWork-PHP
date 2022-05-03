@@ -53,3 +53,5 @@ $userNameCharacters = ['a','b','d','u','l','l','a','h'];
 echo callableTest(function ($characters){
     return implode('', $characters[0]);
     },$userNameCharacters);
+
+/** new  */

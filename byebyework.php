@@ -3,7 +3,7 @@ $projectName = 'php';
 $connection= mysqli_connect('localhost','root','','cron');
 $data = mysqli_query($connection,"select * from cron where project_path = '$projectName' and status = 'uncompleted'");
 $result = mysqli_fetch_object($data);
-var_dump($result);
+
 if (!is_null($result)){
 
     $message = "$result->commit_message";
