@@ -1,0 +1,17 @@
+{
+    "name": "zoom/php",
+    "autoload": {
+        "psr-4": {
+            "Zoom\\Php\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Abdullah Karam",
+            "email": "abdallakaramdev@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^5.4"
+    }
+}
