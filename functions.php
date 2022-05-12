@@ -23,21 +23,28 @@ if(!function_exists('sum_three')){
     }
 }
 
-echo sum_three(10,20,20).PHP_EOL;
+echo sum_three(10,20,20)."<br>";
 
 /** anonymous function */
-$arrowFunction = fn(int...$numbers): int => array_sum($numbers) + 2222;
-echo $arrowFunction(1,1,1).PHP_EOL;;
+$arrowFunction = fn(int...$numbers): int => array_sum($numbers);
+echo $arrowFunction(1,1,1)."<br>";
+
+$random = mt_rand(1,100);
+$anonymousFunction = function(int...$numbers) use (&$random){
+ $random = 'random';
+ return array_sum($numbers) .' random is '.$random;
+};
+echo $anonymousFunction(2,2,2)."<br>";
+echo "random value is : $random"."<br>";
 
 /** function named arguments */
 
 function named_argument(string $first_name,string $last_name):string
 {
-    return $first_name.' '.$last_name.PHP_EOL;
+    return $first_name.' '.$last_name."<br>";
 }
 
-echo named_argument(last_name: 'karam',first_name: 'abdullah');
-echo "<br>";
+echo named_argument(last_name: 'karam',first_name: 'abdullah')."<br>";
 
 /** nested callable with splat operator in php */
 
@@ -51,7 +58,31 @@ $userNameCharacters = ['a','b','d','u','l','l','a','h'];
 /** result :  (abdullah) */
 
 echo callableTest(function ($characters){
-    return implode('', $characters[0]);
+    return implode('', $characters[0])."<br>";
     },$userNameCharacters);
 
-/** new  */
+/** try named arguments with built-in function in php */
+
+$cookieValues = [
+    'name' => 'foo',
+    'value' => 'bar',
+    'httponly' => true
+];
+
+function setCookieA(array $values):bool
+{
+    return setcookie(name:$values['name'],value:$values['value'],httponly:$values['httponly']);
+}
+
+var_dump(setCookieA($cookieValues)."<br>");
+
+
+
+/** array map with anonymous function  */
+
+$arr = [1,2,3,4,5,6];
+$result = array_map(fn($number):int => ($number < 1) ? $number * 2 : $number,$arr);
+echo "<pre>";
+var_dump($result);
+
+
