@@ -1,5 +1,8 @@
 <?php
 declare(strict_types=1);
+
+date_default_timezone_set('Africa/Cairo');
+
 /** Splat Operator */
 function sum(int...$numbers):int
 {
@@ -85,4 +88,41 @@ $result = array_map(fn($number):int => ($number < 1) ? $number * 2 : $number,$ar
 echo "<pre>";
 var_dump($result);
 
+
+
+
+
+//function recursion($number)
+//{
+//    if ($number <= 100000) {
+//        echo "$number <br/>";
+//        recursion($number + 1);
+//    }
+//}
+//
+//$start_time = microtime(true);
+//recursion(1);
+//
+//$end_time = microtime(true);
+//echo ($end_time - $start_time);
+//
+//$start_time = microtime(true);
+//for ($i=1;$i <= 100000;$i++){
+//    echo "$i <br/>";
+//}
+//$end_time = microtime(true);
+//echo ($end_time - $start_time);
+
+function random()
+{
+    $randomNumber = mt_rand(0,9);
+    if ($randomNumber === 9){
+        echo $randomNumber;
+        die();
+    }
+    echo "not equal 9".PHP_EOL;
+    random();
+}
+
+random();
 
