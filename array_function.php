@@ -2,6 +2,8 @@
 
 require  __DIR__.'/vendor/autoload.php';
 
+dd(array_is_list(['s' => 'a']));
+
 $string = "
 Serial#:CB8F73CA
 Vendor:ZTEG
